@@ -1,0 +1,13 @@
+Declare
+number1 NUMBER:=0;
+BEGIN
+LOOP 
+number1:=number1+1;
+EXIT WHEN number1=100;
+END LOOP;
+DBMS_OUTPUT.put_line(number1);
+EXCEPTION
+WHEN OTHERS THEN
+DBMS_OUTPUT.put_line(SQLERRM);
+END;
+/

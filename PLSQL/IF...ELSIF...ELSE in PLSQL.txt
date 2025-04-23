@@ -1,0 +1,24 @@
+Question:
+Write a PL/SQL block that checks a student's marks and prints:
+
+"Excellent" if marks are 90 or above
+"Good" if marks are between 70 and 89
+"Needs Improvement" if marks are below 70
+SET SERVEROUTPUT ON;
+Declare
+marks marks_table.student_marks%TYPE;
+Begin
+SELECT student_marks INTO 
+marks FROM marks_table;
+IF marks > 90 THEN
+DBMS_OUTPUT.PUT_LINE('"Excellent" ');
+ELSIF marks BETWEEN 70 and 89 THEN
+DBMS_OUTPUT.PUT_LINE('"Good" ');
+ELSE
+DBMS_OUTPUT.PUT_LINE('Needs Improvement');
+END IF;
+EXCEPTION
+WHEN OTHERS THEN
+DBMS_OUTPUT.PUT_LINE(SQLERRM);
+END;
+/
